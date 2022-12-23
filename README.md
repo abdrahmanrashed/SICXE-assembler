@@ -10,7 +10,7 @@ Not all comments are particularly useful, they were added to meet a specific req
 
 ----------------------------------------------------------------------------
 
-File clarifications:
+FILE CLARIFICATIONS:
 input.txt(input file) contains the initial sic code(your program) to be assembled, there is an example already inside it.
 opcode.txt(input file) contains the length and opcode for each mnemonic instruction.
 pass1.txt(output file) shows the program with its addresses after it is loaded into the memory.
