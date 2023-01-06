@@ -178,17 +178,17 @@ void get_pass2(){                                                //get opcodes f
             x |= icode[instructions[i]] << 16;
             string code = codes[i];
             int disp = 0;                                        //displacement
-            if(code.empty()) goto here;
             x |= (code[0] != '#') << 17;                         //set bit n
             x |= (code[0] != '@') << 16;                         //set bit i
+            if(code.empty()) goto here;
             if (code.find(",X") != string::npos){
                 x |= 1 << 15;                                    //set bit x
                 code = code.substr(0, code.size() - 2);
                 disp -= reg[1];
             }
-            if(code[0] == '#') code = code.substr(1);
+            if(code[0] == '#' && code[1] >= '0' && code[1] <= '9') code = code.substr(1);
             else{
-                if(code[0] == '@') code = code.substr(1);
+                if(code[0] == '@' || code[0] == '#') code = code.substr(1);
                 disp -= addresses[i + 1];
             } 
             if(len == 4){                                        //format 4 case
